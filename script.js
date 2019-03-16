@@ -6,7 +6,7 @@ const board = new five.Board({
 const axios = require("axios");
 //temp dynamic backend url
 //after deploy, will get static url
-const BACKEND_URL = "http://2cd09f63.ngrok.io/api/rpi/rating";
+const BACKEND_URL = "http://2cd09f63.ngrok.io/api/rpi";
 
 board.on("ready", () => {
 	//set excellent button at pin 11
