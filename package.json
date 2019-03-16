@@ -1,23 +1,20 @@
 {
-	"name": "pi-hardware",
-	"version": "1.0.0",
-	"description": "Raspberry Pi code in Javascript via Nodejs",
-	"main": "script.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/purfect-dining/pi-hardware.git"
-	},
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/purfect-dining/pi-hardware/issues"
-	},
-	"homepage": "https://github.com/purfect-dining/pi-hardware#readme",
-	"dependencies": {
-		"johnny-five": "^1.0.0",
-		"raspi-io": "^10.0.1"
-	}
+  "name": "purfectdining",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "johnny-five": "^1.0.0",
+    "pigpio": "^1.2.1",
+    "raspi-io": "^10.0.1",
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.8.4"
+  }
 }
