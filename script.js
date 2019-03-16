@@ -4,9 +4,9 @@ const board = new five.Board({
 	io: new Raspi()
 });
 const axios = require("axios");
-//temp dynamic backend url
-//after deploy, will get static url
-const BACKEND_URL = "http://2cd09f63.ngrok.io/api/rpi";
+
+//deploy temp backend on heroku
+const BACKEND_URL = "https://purfectdining-server.herokuapp.com/api/rpi";
 
 board.on("ready", () => {
 	//set excellent button at pin 11
@@ -34,7 +34,7 @@ sendRatingBackend = rating => {
 	axios
 		.post(BACKEND_URL, { rating: rating })
 		.then(res => {
-			console.log("Server: " + res.data.message);
+			console.log(rating);
 		})
 		.catch(err => {
 			console.log(err.response.data.message);
