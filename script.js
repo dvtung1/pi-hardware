@@ -7,6 +7,8 @@ const axios = require("axios");
 
 //deploy temp backend on heroku
 const BACKEND_URL = "https://purfectdining-server.herokuapp.com/api/rpi";
+//this rpi will be set up at Ford Dining Court
+const PLACE = "Ford";
 
 board.on("ready", () => {
 	//set excellent button at pin 11
@@ -32,7 +34,7 @@ board.on("ready", () => {
 
 sendRatingBackend = rating => {
 	axios
-		.post(BACKEND_URL, { rating: rating })
+		.post(BACKEND_URL, { rating: rating, place: PLACE })
 		.then(res => {
 			console.log(rating);
 		})
