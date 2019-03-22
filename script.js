@@ -42,36 +42,39 @@ board.on("ready", () => {
 	//set poor button at pin 15
 	var buttonPoor = new five.Button("P1-15");
 
-	var piezo = new five.Piezo("P1-32");
+	//var piezo = new five.Piezo("P1-32");
+	var piezo = new five.Piezo("P1-23");
 
 	board.repl.inject({
 		piezo: piezo
 	});
-
 	buttonExcellent.on("down", function() {
-		console.log("Sending..");
 		sendRatingBackend("excellent");
+		console.log("Sending..");
 	});
 	buttonSatisfactory.on("down", function() {
-		console.log("Sending..");
 		sendRatingBackend("satisfactory");
+		console.log("Sending..");
 	});
 	buttonPoor.on("down", function() {
-		console.log("Sending..");
 		sendRatingBackend("poor");
+		console.log("Sending..");
 	});
 	buttonExcellent.on("up", function() {
 		piezo.play(SONG);
+		wait(1800);
 	});
 	buttonSatisfactory.on("up", function() {
 		piezo.play(SONG);
+		wait(1800);
 	});
 	buttonPoor.on("up", function() {
 		piezo.play(SONG);
+		wait(1800);
 	});
 });
 
-sendRatingBackend = rating => {
+var sendRatingBackend = rating => {
 	axios
 		.post(BACKEND_URL, { rating: rating, place: PLACE })
 		.then(res => {
@@ -81,3 +84,12 @@ sendRatingBackend = rating => {
 			console.log(err.response.data.message);
 		});
 };
+
+//hang execution/resource for some ms
+function wait(ms) {
+	var start = new Date().getTime();
+	var end = start;
+	while (end < start + ms) {
+		end = new Date().getTime();
+	}
+}
